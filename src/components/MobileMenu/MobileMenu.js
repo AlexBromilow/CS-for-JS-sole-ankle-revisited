@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import Dialog, { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { BREAKPOINTS, COLORS, WEIGHTS } from '../../constants';
+import { BREAKPOINTS, WEIGHTS } from '../../constants';
 
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
@@ -35,7 +35,7 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
 };
 
 const Overlay = styled(DialogOverlay)`
-  background: hsla(220, 5%, 40%, 0.8);
+  background: var(--color-backdrop);
   height: 100%;
   width: 100%;
   position: absolute;
@@ -80,7 +80,7 @@ const Nav = styled.nav`
     font-weight: ${WEIGHTS.medium};
     text-transform: uppercase;
     text-decoration: none;
-    color: ${COLORS.gray[900]};
+    color: var(--color-gray900);
   }
 `;
 
@@ -91,7 +91,7 @@ const Footer = styled.footer`
   gap: ${14 / 16}rem;
 
   a {
-    color: ${COLORS.gray[700]};
+    color: var(--color-gray700);
     text-decoration: none;
   }
 `;

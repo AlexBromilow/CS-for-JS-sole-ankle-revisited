@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { BREAKPOINTS, COLORS, WEIGHTS } from '../../constants';
+import { BREAKPOINTS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -62,13 +62,13 @@ const MainHeader = styled.div`
   width: 100%;
   padding: 18px 32px;
   height: 72px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--color-gray300);
   overflow: auto;
 
   @media (${BREAKPOINTS.tablet}) {
     justify-content: space-between;
     align-items: center;
-    border-top: 4px solid ${COLORS.gray[900]};
+    border-top: 4px solid var(--color-gray900);
     gap: 1rem;
   }
 
@@ -113,12 +113,12 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--color-gray900);
   font-weight: ${WEIGHTS.medium};
   min-width: max-content;
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--color-secondary);
   }
 `;
 
