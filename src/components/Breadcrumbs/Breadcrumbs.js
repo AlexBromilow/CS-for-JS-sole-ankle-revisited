@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { COLORS } from '../../constants';
+import { BREAKPOINTS, COLORS } from '../../constants';
 
 const Breadcrumbs = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
@@ -38,7 +38,12 @@ const CrumbLink = styled.a`
 `;
 
 const Wrapper = styled.nav`
+  flex-basis: 248px;
   display: flex;
   font-size: 0.875rem;
+
+  @media (${BREAKPOINTS.tablet}) {
+    flex-basis: 0;
+  }
 `;
 export default Breadcrumbs;
