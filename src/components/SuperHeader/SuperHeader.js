@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS } from '../../constants';
+import { BREAKPOINTS, COLORS } from '../../constants';
 
 import SearchInput from '../SearchInput';
 import UnstyledButton from '../UnstyledButton';
@@ -14,9 +14,9 @@ const SuperHeader = () => {
         Free shipping on domestic orders over $75!
       </MarketingMessage>
       <SearchInput />
-      <HelpLink href="/help">Help</HelpLink>
+      <HelpLink href='/help'>Help</HelpLink>
       <UnstyledButton>
-        <Icon id="shopping-bag" strokeWidth={1} />
+        <Icon id='shopping-bag' strokeWidth={1} />
       </UnstyledButton>
     </Wrapper>
   );
@@ -32,6 +32,14 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
+
+  @media (${BREAKPOINTS.tablet}) {
+    display: none;
+  }
+
+  @media (${BREAKPOINTS.mobile}) {
+    display: none;
+  }
 `;
 
 const MarketingMessage = styled.span`

@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { BREAKPOINTS, COLORS, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -18,17 +21,31 @@ const Header = () => {
     <header>
       <SuperHeader />
       <MainHeader>
-        <Side>
+        <LogoWrapper>
           <Logo />
-        </Side>
-        <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        </LogoWrapper>
+        <DesktopNav>
+          <NavLink href='/sale'>Sale</NavLink>
+          <NavLink href='/new'>New&nbsp;Releases</NavLink>
+          <NavLink href='/men'>Men</NavLink>
+          <NavLink href='/women'>Women</NavLink>
+          <NavLink href='/kids'>Kids</NavLink>
+          <NavLink href='/collections'>Collections</NavLink>
+        </DesktopNav>
+        <MobileNav>
+          <UnstyledButton>
+            <Icon id='shopping-bag' strokeWidth={1} />
+            <VisuallyHidden>Open Cart</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id='search' strokeWidth={1} />
+            <VisuallyHidden>Search</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id='menu' strokeWidth={1} />
+            <VisuallyHidden>Open Menu</VisuallyHidden>
+          </UnstyledButton>
+        </MobileNav>
         <Side />
       </MainHeader>
 
@@ -42,20 +59,53 @@ const Header = () => {
 
 const MainHeader = styled.div`
   display: flex;
-  align-items: baseline;
+  width: 100%;
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media (${BREAKPOINTS.tablet}) {
+    justify-content: space-between;
+    align-items: center;
+    border-top: 4px solid ${COLORS.gray[900]};
+    gap: 1rem;
+  }
+
+  @media (${BREAKPOINTS.mobile}) {
+    padding: 0 16px;
+  }
 `;
 
-const Nav = styled.nav`
+const DesktopNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media (${BREAKPOINTS.tablet}) {
+    display: none;
+  }
+
+  @media (${BREAKPOINTS.mobile}) {
+    display: none;
+  }
 `;
 
 const Side = styled.div`
   flex: 1;
+  margin-right: auto;
+
+  @media (${BREAKPOINTS.tablet}) {
+    display: none;
+  }
+
+  @media (${BREAKPOINTS.mobile}) {
+    display: none;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  flex: 1;
+  margin-right: auto;
 `;
 
 const NavLink = styled.a`
@@ -67,6 +117,20 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: ${COLORS.secondary};
+  }
+`;
+
+const MobileNav = styled.nav`
+  display: none;
+
+  @media (${BREAKPOINTS.tablet}) {
+    display: flex;
+    gap: 2rem;
+  }
+
+  @media (${BREAKPOINTS.mobile}) {
+    display: flex;
+    gap: 1rem;
   }
 `;
 
