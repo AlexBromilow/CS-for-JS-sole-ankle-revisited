@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { BREAKPOINTS, COLORS } from '../../constants';
+import { BREAKPOINTS } from '../../constants';
 
 const Breadcrumbs = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
@@ -23,17 +23,17 @@ const CrumbWrapper = styled.div`
     &::before {
       content: '/';
       margin-right: 8px;
-      color: ${COLORS.gray[300]};
+      color: var(--color-gray300);
     }
   }
 `;
 
 const CrumbLink = styled.a`
-  color: ${COLORS.gray[700]};
+  color: var(--color-gray700);
   text-decoration: none;
 
   &:hover {
-    color: ${COLORS.gray[900]};
+    color: var(--color-gray900);
   }
 `;
 
