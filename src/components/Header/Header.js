@@ -63,6 +63,7 @@ const MainHeader = styled.div`
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+  overflow: auto;
 
   @media (${BREAKPOINTS.tablet}) {
     justify-content: space-between;
@@ -78,7 +79,7 @@ const MainHeader = styled.div`
 
 const DesktopNav = styled.nav`
   display: flex;
-  gap: 48px;
+  gap: clamp(1rem, 7vw - 3rem, 4rem);
   margin: 0px 48px;
 
   @media (${BREAKPOINTS.tablet}) {
@@ -114,6 +115,7 @@ const NavLink = styled.a`
   text-decoration: none;
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
+  min-width: max-content;
 
   &:first-of-type {
     color: ${COLORS.secondary};
